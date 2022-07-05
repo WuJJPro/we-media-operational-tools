@@ -1,0 +1,345 @@
+[INFO  2022-07-05T11:14:07,356 net.lightbody.bmp.proxy.Main] (main) Starting BrowserMob Proxy version 2.1.4 
+[INFO  2022-07-05T11:14:07,403 org.eclipse.jetty.util.log] (main) jetty-7.x.y-SNAPSHOT 
+[INFO  2022-07-05T11:14:07,757 org.eclipse.jetty.util.log] (main) started o.e.j.s.ServletContextHandler{/,null} 
+[INFO  2022-07-05T11:14:07,929 org.eclipse.jetty.util.log] (main) Started SelectChannelConnector@0.0.0.0:8080 
+[INFO  2022-07-05T11:14:08,967 org.littleshoot.proxy.impl.DefaultHttpProxyServer] (qtp664186542-19) Starting proxy at address: 0.0.0.0/0.0.0.0:8081 
+[INFO  2022-07-05T11:14:09,014 org.littleshoot.proxy.impl.DefaultHttpProxyServer] (qtp664186542-19) Proxy listening with TCP transport 
+[INFO  2022-07-05T11:14:09,669 org.littleshoot.proxy.impl.DefaultHttpProxyServer] (qtp664186542-19) Proxy started at address: /0:0:0:0:0:0:0:0:8081 
+[WARN  2022-07-05T11:14:13,067 net.lightbody.bmp.filters.ServerResponseCaptureFilter] (LittleProxy-0-ProxyToServerWorker-3) Cannot decode unsupported content encoding type br 
+[WARN  2022-07-05T11:14:13,067 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-3) Unable to decompress content with encoding: br. Contents will be encoded as base64 binary data. 
+[WARN  2022-07-05T11:14:15,989 net.lightbody.bmp.filters.ServerResponseCaptureFilter] (LittleProxy-0-ProxyToServerWorker-1) Failed to decompress response with encoding type gzip when decoding request from /oauth2.0/authorize?response_type=code&client_id=1101083114&redirect_uri=https%3A%2F%2Fh5.weishi.qq.com%2Fweishi%2Faccount%2Flogin%3Fr_url%3Dhttp%253A%252F%252Fmedia.weishi.qq.com%252F%26loginfrom%3Dqc&state=state net.lightbody.bmp.exception.DecompressionException: Unable to decompress response
+	at net.lightbody.bmp.util.BrowserMobHttpUtil.decompressContents(BrowserMobHttpUtil.java:101) ~[browsermob-dist-2.1.4.jar:?]
+	at net.lightbody.bmp.filters.ServerResponseCaptureFilter.decompressContents(ServerResponseCaptureFilter.java:131) [browsermob-dist-2.1.4.jar:?]
+	at net.lightbody.bmp.filters.ServerResponseCaptureFilter.captureFullResponseContents(ServerResponseCaptureFilter.java:118) [browsermob-dist-2.1.4.jar:?]
+	at net.lightbody.bmp.filters.ServerResponseCaptureFilter.serverToProxyResponse(ServerResponseCaptureFilter.java:99) [browsermob-dist-2.1.4.jar:?]
+	at net.lightbody.bmp.filters.HarCaptureFilter.serverToProxyResponse(HarCaptureFilter.java:250) [browsermob-dist-2.1.4.jar:?]
+	at net.lightbody.bmp.filters.BrowserMobHttpFilterChain.serverToProxyResponse(BrowserMobHttpFilterChain.java:123) [browsermob-dist-2.1.4.jar:?]
+	at org.littleshoot.proxy.impl.ClientToProxyConnection.respond(ClientToProxyConnection.java:418) [browsermob-dist-2.1.4.jar:?]
+	at org.littleshoot.proxy.impl.ProxyToServerConnection.respondWith(ProxyToServerConnection.java:519) [browsermob-dist-2.1.4.jar:?]
+	at org.littleshoot.proxy.impl.ProxyToServerConnection.readHTTPChunk(ProxyToServerConnection.java:251) [browsermob-dist-2.1.4.jar:?]
+	at org.littleshoot.proxy.impl.ProxyConnection.readHTTP(ProxyConnection.java:146) [browsermob-dist-2.1.4.jar:?]
+	at org.littleshoot.proxy.impl.ProxyConnection.read(ProxyConnection.java:120) [browsermob-dist-2.1.4.jar:?]
+	at org.littleshoot.proxy.impl.ProxyToServerConnection.read(ProxyToServerConnection.java:214) [browsermob-dist-2.1.4.jar:?]
+	at org.littleshoot.proxy.impl.ProxyConnection.channelRead0(ProxyConnection.java:587) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.SimpleChannelInboundHandler.channelRead(SimpleChannelInboundHandler.java:105) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:373) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:359) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:351) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:266) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:373) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:359) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:351) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.ChannelInboundHandlerAdapter.channelRead(ChannelInboundHandlerAdapter.java:86) [browsermob-dist-2.1.4.jar:?]
+	at org.littleshoot.proxy.impl.ProxyConnection$ResponseReadMonitor.channelRead(ProxyConnection.java:738) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:373) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:359) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:351) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:293) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:267) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:373) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:359) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:351) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.ChannelInboundHandlerAdapter.channelRead(ChannelInboundHandlerAdapter.java:86) [browsermob-dist-2.1.4.jar:?]
+	at org.littleshoot.proxy.impl.ProxyConnection$BytesReadMonitor.channelRead(ProxyConnection.java:692) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:373) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:359) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:351) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.handler.ssl.SslHandler.unwrap(SslHandler.java:1069) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.handler.ssl.SslHandler.decode(SslHandler.java:902) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:411) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:248) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:373) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:359) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:351) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1334) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:373) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:359) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:926) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:129) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:651) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:574) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:488) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:450) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:873) [browsermob-dist-2.1.4.jar:?]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_301]
+Caused by: java.io.EOFException
+	at java.util.zip.GZIPInputStream.readUByte(Unknown Source) ~[?:1.8.0_301]
+	at java.util.zip.GZIPInputStream.readUShort(Unknown Source) ~[?:1.8.0_301]
+	at java.util.zip.GZIPInputStream.readHeader(Unknown Source) ~[?:1.8.0_301]
+	at java.util.zip.GZIPInputStream.<init>(Unknown Source) ~[?:1.8.0_301]
+	at java.util.zip.GZIPInputStream.<init>(Unknown Source) ~[?:1.8.0_301]
+	at net.lightbody.bmp.util.BrowserMobHttpUtil.decompressContents(BrowserMobHttpUtil.java:89) ~[browsermob-dist-2.1.4.jar:?]
+	... 53 more
+
+[WARN  2022-07-05T11:14:15,997 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-1) Unable to decompress content with encoding: gzip. Contents will be encoded as base64 binary data. 
+[WARN  2022-07-05T11:14:17,467 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-0) No content type specified in response from /collect/pv?id=RiaWqsnT3403yXTgVY&uin=6f700991b9db8424-6227ddc58b003525-7750&version=v1.32.5&aid=073e7f8b-9ed9-43bc-839a-4e9550fefcf6&platform=3&netType=4&sessionId=session-1656990857164&from=https%3A%2F%2Fxui.ptlogin2.qq.com%2Fcgi-bin%2Fxlogin%3Fappid%3D716027609%26daid%3D383%26style%3D33%26login_text%3D%25E7%2599%25BB%25E5%25BD%2595%26hide_title_bar%3D1%26hide_border%3D1%26target%3Dself%26s_url%3Dhttps%253A%252F%252Fgraph.qq.com%252Foauth2.0%252Flogin_jump%26pt_3rd_aid%3D1101083114%26pt_feedback_link%3Dhttps%253A%252F%252Fsupport.qq.com%252Fproducts%252F77942%253FcustomInfo%253D.appid1101083114%26theme%3D2%26verify_theme%3D&referer=https%3A%2F%2Fgraph.qq.com%2F. Content will be treated as application/octet-stream 
+[WARN  2022-07-05T11:14:17,874 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-0) No content type specified in response from /speed?id=RiaWqsnT3403yXTgVY&uin=6f700991b9db8424-6227ddc58b003525-7750&version=v1.32.5&aid=073e7f8b-9ed9-43bc-839a-4e9550fefcf6&platform=3&netType=4&sessionId=session-1656990857164&from=https%3A%2F%2Fxui.ptlogin2.qq.com%2Fcgi-bin%2Fxlogin%3Fappid%3D716027609%26daid%3D383%26style%3D33%26login_text%3D%25E7%2599%25BB%25E5%25BD%2595%26hide_title_bar%3D1%26hide_border%3D1%26target%3Dself%26s_url%3Dhttps%253A%252F%252Fgraph.qq.com%252Foauth2.0%252Flogin_jump%26pt_3rd_aid%3D1101083114%26pt_feedback_link%3Dhttps%253A%252F%252Fsupport.qq.com%252Fproducts%252F77942%253FcustomInfo%253D.appid1101083114%26theme%3D2%26verify_theme%3D&referer=https%3A%2F%2Fgraph.qq.com%2F. Content will be treated as application/octet-stream 
+[WARN  2022-07-05T11:14:19,101 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-0) No content type specified in response from /speed/webvitals?FCP=2067.7000000029802&LCP=-1&FID=-1&CLS=-1&id=RiaWqsnT3403yXTgVY&uin=6f700991b9db8424-6227ddc58b003525-7750&version=v1.32.5&aid=073e7f8b-9ed9-43bc-839a-4e9550fefcf6&platform=3&netType=4&sessionId=session-1656990857164&from=https%3A%2F%2Fxui.ptlogin2.qq.com%2Fcgi-bin%2Fxlogin%3Fappid%3D716027609%26daid%3D383%26style%3D33%26login_text%3D%25E7%2599%25BB%25E5%25BD%2595%26hide_title_bar%3D1%26hide_border%3D1%26target%3Dself%26s_url%3Dhttps%253A%252F%252Fgraph.qq.com%252Foauth2.0%252Flogin_jump%26pt_3rd_aid%3D1101083114%26pt_feedback_link%3Dhttps%253A%252F%252Fsupport.qq.com%252Fproducts%252F77942%253FcustomInfo%253D.appid1101083114%26theme%3D2%26verify_theme%3D&referer=https%3A%2F%2Fgraph.qq.com%2F. Content will be treated as application/octet-stream 
+[WARN  2022-07-05T11:14:19,206 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-0) No content type specified in response from /speed?id=RiaWqsnT3403yXTgVY&uin=6f700991b9db8424-6227ddc58b003525-7750&version=v1.32.5&aid=073e7f8b-9ed9-43bc-839a-4e9550fefcf6&platform=3&netType=4&sessionId=session-1656990857164&from=https%3A%2F%2Fxui.ptlogin2.qq.com%2Fcgi-bin%2Fxlogin%3Fappid%3D716027609%26daid%3D383%26style%3D33%26login_text%3D%25E7%2599%25BB%25E5%25BD%2595%26hide_title_bar%3D1%26hide_border%3D1%26target%3Dself%26s_url%3Dhttps%253A%252F%252Fgraph.qq.com%252Foauth2.0%252Flogin_jump%26pt_3rd_aid%3D1101083114%26pt_feedback_link%3Dhttps%253A%252F%252Fsupport.qq.com%252Fproducts%252F77942%253FcustomInfo%253D.appid1101083114%26theme%3D2%26verify_theme%3D&referer=https%3A%2F%2Fgraph.qq.com%2F. Content will be treated as application/octet-stream 
+[WARN  2022-07-05T11:14:20,130 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-0) No content type specified in response from /speed?id=RiaWqsnT3403yXTgVY&uin=6f700991b9db8424-6227ddc58b003525-7750&version=v1.32.5&aid=073e7f8b-9ed9-43bc-839a-4e9550fefcf6&platform=3&netType=4&sessionId=session-1656990857164&from=https%3A%2F%2Fxui.ptlogin2.qq.com%2Fcgi-bin%2Fxlogin%3Fappid%3D716027609%26daid%3D383%26style%3D33%26login_text%3D%25E7%2599%25BB%25E5%25BD%2595%26hide_title_bar%3D1%26hide_border%3D1%26target%3Dself%26s_url%3Dhttps%253A%252F%252Fgraph.qq.com%252Foauth2.0%252Flogin_jump%26pt_3rd_aid%3D1101083114%26pt_feedback_link%3Dhttps%253A%252F%252Fsupport.qq.com%252Fproducts%252F77942%253FcustomInfo%253D.appid1101083114%26theme%3D2%26verify_theme%3D&referer=https%3A%2F%2Fgraph.qq.com%2F. Content will be treated as application/octet-stream 
+[INFO  2022-07-05T11:14:20,146 org.littleshoot.proxy.impl.ClientToProxyConnection] (LittleProxy-0-ClientToProxyWorker-7) (AWAITING_INITIAL) [id: 0x1105ed4a, L:/0:0:0:0:0:0:0:1:8081 - R:/0:0:0:0:0:0:0:1:65431]: An IOException occurred on ClientToProxyConnection: 你的主机中的软件中止了一个已建立的连接。 
+[WARN  2022-07-05T11:14:20,337 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-0) No content type specified in response from /speed/performance?dnsLookup=0&tcp=215&ssl=84&ttfb=31&contentDownload=20&domParse=1779&resourceDownload=1070&firstScreenTiming=285&id=RiaWqsnT3403yXTgVY&uin=6f700991b9db8424-6227ddc58b003525-7750&version=v1.32.5&aid=073e7f8b-9ed9-43bc-839a-4e9550fefcf6&platform=3&netType=4&sessionId=session-1656990857164&from=https%3A%2F%2Fxui.ptlogin2.qq.com%2Fcgi-bin%2Fxlogin%3Fappid%3D716027609%26daid%3D383%26style%3D33%26login_text%3D%25E7%2599%25BB%25E5%25BD%2595%26hide_title_bar%3D1%26hide_border%3D1%26target%3Dself%26s_url%3Dhttps%253A%252F%252Fgraph.qq.com%252Foauth2.0%252Flogin_jump%26pt_3rd_aid%3D1101083114%26pt_feedback_link%3Dhttps%253A%252F%252Fsupport.qq.com%252Fproducts%252F77942%253FcustomInfo%253D.appid1101083114%26theme%3D2%26verify_theme%3D&referer=https%3A%2F%2Fgraph.qq.com%2F. Content will be treated as application/octet-stream 
+[WARN  2022-07-05T11:14:20,738 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-0) No content type specified in response from /speed?id=RiaWqsnT3403yXTgVY&uin=6f700991b9db8424-6227ddc58b003525-7750&version=v1.32.5&aid=073e7f8b-9ed9-43bc-839a-4e9550fefcf6&platform=3&netType=4&sessionId=session-1656990857164&from=https%3A%2F%2Fxui.ptlogin2.qq.com%2Fcgi-bin%2Fxlogin%3Fappid%3D716027609%26daid%3D383%26style%3D33%26login_text%3D%25E7%2599%25BB%25E5%25BD%2595%26hide_title_bar%3D1%26hide_border%3D1%26target%3Dself%26s_url%3Dhttps%253A%252F%252Fgraph.qq.com%252Foauth2.0%252Flogin_jump%26pt_3rd_aid%3D1101083114%26pt_feedback_link%3Dhttps%253A%252F%252Fsupport.qq.com%252Fproducts%252F77942%253FcustomInfo%253D.appid1101083114%26theme%3D2%26verify_theme%3D&referer=https%3A%2F%2Fgraph.qq.com%2F. Content will be treated as application/octet-stream 
+[WARN  2022-07-05T11:14:20,946 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-0) No content type specified in response from /speed?id=RiaWqsnT3403yXTgVY&uin=6f700991b9db8424-6227ddc58b003525-7750&version=v1.32.5&aid=073e7f8b-9ed9-43bc-839a-4e9550fefcf6&platform=3&netType=4&sessionId=session-1656990857164&from=https%3A%2F%2Fxui.ptlogin2.qq.com%2Fcgi-bin%2Fxlogin%3Fappid%3D716027609%26daid%3D383%26style%3D33%26login_text%3D%25E7%2599%25BB%25E5%25BD%2595%26hide_title_bar%3D1%26hide_border%3D1%26target%3Dself%26s_url%3Dhttps%253A%252F%252Fgraph.qq.com%252Foauth2.0%252Flogin_jump%26pt_3rd_aid%3D1101083114%26pt_feedback_link%3Dhttps%253A%252F%252Fsupport.qq.com%252Fproducts%252F77942%253FcustomInfo%253D.appid1101083114%26theme%3D2%26verify_theme%3D&referer=https%3A%2F%2Fgraph.qq.com%2F. Content will be treated as application/octet-stream 
+[INFO  2022-07-05T11:14:21,905 org.littleshoot.proxy.impl.ProxyToServerConnection] (LittleProxy-0-ProxyToServerWorker-3) (CONNECTING) [id: 0x8ae645a8]: Connection to upstream server failed io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: localhost.ptlogin2.qq.com/127.0.0.1:4301
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method) ~[?:1.8.0_301]
+	at sun.nio.ch.SocketChannelImpl.finishConnect(Unknown Source) ~[?:1.8.0_301]
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:346) ~[browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:340) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:639) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:574) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:488) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:450) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:873) [browsermob-dist-2.1.4.jar:?]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_301]
+
+[INFO  2022-07-05T11:14:21,921 org.littleshoot.proxy.impl.ProxyToServerConnection] (LittleProxy-0-ProxyToServerWorker-4) (CONNECTING) [id: 0x9cfa5216]: Connection to upstream server failed io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: localhost.ptlogin2.qq.com/127.0.0.1:4301
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method) ~[?:1.8.0_301]
+	at sun.nio.ch.SocketChannelImpl.finishConnect(Unknown Source) ~[?:1.8.0_301]
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:346) ~[browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:340) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:639) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:574) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:488) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:450) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:873) [browsermob-dist-2.1.4.jar:?]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_301]
+
+[INFO  2022-07-05T11:14:21,969 org.littleshoot.proxy.impl.ProxyToServerConnection] (LittleProxy-0-ProxyToServerWorker-6) (CONNECTING) [id: 0xe91a9bb4]: Connection to upstream server failed io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: localhost.sec.qq.com/127.0.0.1:9410
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method) ~[?:1.8.0_301]
+	at sun.nio.ch.SocketChannelImpl.finishConnect(Unknown Source) ~[?:1.8.0_301]
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:346) ~[browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:340) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:639) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:574) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:488) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:450) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:873) [browsermob-dist-2.1.4.jar:?]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_301]
+
+[INFO  2022-07-05T11:14:22,001 org.littleshoot.proxy.impl.ProxyToServerConnection] (LittleProxy-0-ProxyToServerWorker-0) (CONNECTING) [id: 0xd3174fc2]: Connection to upstream server failed io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: localhost.ptlogin2.qq.com/127.0.0.1:4303
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method) ~[?:1.8.0_301]
+	at sun.nio.ch.SocketChannelImpl.finishConnect(Unknown Source) ~[?:1.8.0_301]
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:346) ~[browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:340) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:639) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:574) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:488) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:450) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:873) [browsermob-dist-2.1.4.jar:?]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_301]
+
+[INFO  2022-07-05T11:14:22,089 org.littleshoot.proxy.impl.ProxyToServerConnection] (LittleProxy-0-ProxyToServerWorker-1) (CONNECTING) [id: 0x0327b5f9]: Connection to upstream server failed io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: localhost.ptlogin2.qq.com/127.0.0.1:4305
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method) ~[?:1.8.0_301]
+	at sun.nio.ch.SocketChannelImpl.finishConnect(Unknown Source) ~[?:1.8.0_301]
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:346) ~[browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:340) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:639) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:574) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:488) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:450) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:873) [browsermob-dist-2.1.4.jar:?]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_301]
+
+[INFO  2022-07-05T11:14:22,121 org.littleshoot.proxy.impl.ProxyToServerConnection] (LittleProxy-0-ProxyToServerWorker-2) (CONNECTING) [id: 0x1b6b6b7d]: Connection to upstream server failed io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: localhost.sec.qq.com/127.0.0.1:16873
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method) ~[?:1.8.0_301]
+	at sun.nio.ch.SocketChannelImpl.finishConnect(Unknown Source) ~[?:1.8.0_301]
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:346) ~[browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:340) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:639) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:574) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:488) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:450) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:873) [browsermob-dist-2.1.4.jar:?]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_301]
+
+[INFO  2022-07-05T11:14:22,201 org.littleshoot.proxy.impl.ProxyToServerConnection] (LittleProxy-0-ProxyToServerWorker-3) (CONNECTING) [id: 0xaf1409c1]: Connection to upstream server failed io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: localhost.ptlogin2.qq.com/127.0.0.1:4307
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method) ~[?:1.8.0_301]
+	at sun.nio.ch.SocketChannelImpl.finishConnect(Unknown Source) ~[?:1.8.0_301]
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:346) ~[browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:340) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:639) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:574) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:488) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:450) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:873) [browsermob-dist-2.1.4.jar:?]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_301]
+
+[INFO  2022-07-05T11:14:22,233 org.littleshoot.proxy.impl.ProxyToServerConnection] (LittleProxy-0-ProxyToServerWorker-4) (CONNECTING) [id: 0xa80d3224]: Connection to upstream server failed io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: localhost.ptlogin2.qq.com/127.0.0.1:4303
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method) ~[?:1.8.0_301]
+	at sun.nio.ch.SocketChannelImpl.finishConnect(Unknown Source) ~[?:1.8.0_301]
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:346) ~[browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:340) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:639) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:574) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:488) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:450) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:873) [browsermob-dist-2.1.4.jar:?]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_301]
+
+[WARN  2022-07-05T11:14:22,233 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-6) No content type specified in response from /ptqrshow?appid=716027609&e=2&l=M&s=3&d=72&v=4&t=0.785086306441285&daid=383&pt_3rd_aid=1101083114. Content will be treated as application/octet-stream 
+[INFO  2022-07-05T11:14:22,305 org.littleshoot.proxy.impl.ProxyToServerConnection] (LittleProxy-0-ProxyToServerWorker-5) (CONNECTING) [id: 0x16da903f]: Connection to upstream server failed io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: localhost.ptlogin2.qq.com/127.0.0.1:4309
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method) ~[?:1.8.0_301]
+	at sun.nio.ch.SocketChannelImpl.finishConnect(Unknown Source) ~[?:1.8.0_301]
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:346) ~[browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:340) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:639) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:574) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:488) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:450) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:873) [browsermob-dist-2.1.4.jar:?]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_301]
+
+[INFO  2022-07-05T11:14:22,514 net.lightbody.bmp.util.BrowserMobHttpUtil] (LittleProxy-0-ProxyToServerWorker-0) Unable to parse Content-Type header: image/bmp;. Content-Type header will be ignored. java.lang.IllegalArgumentException: Could not parse 'image/bmp;'
+	at com.google.common.net.MediaType.parse(MediaType.java:800) ~[browsermob-dist-2.1.4.jar:?]
+	at net.lightbody.bmp.util.BrowserMobHttpUtil.readCharsetInContentTypeHeader(BrowserMobHttpUtil.java:187) [browsermob-dist-2.1.4.jar:?]
+	at net.lightbody.bmp.filters.HarCaptureFilter.captureResponseContent(HarCaptureFilter.java:464) [browsermob-dist-2.1.4.jar:?]
+	at net.lightbody.bmp.filters.HarCaptureFilter.serverToProxyResponse(HarCaptureFilter.java:267) [browsermob-dist-2.1.4.jar:?]
+	at net.lightbody.bmp.filters.BrowserMobHttpFilterChain.serverToProxyResponse(BrowserMobHttpFilterChain.java:123) [browsermob-dist-2.1.4.jar:?]
+	at org.littleshoot.proxy.impl.ClientToProxyConnection.respond(ClientToProxyConnection.java:418) [browsermob-dist-2.1.4.jar:?]
+	at org.littleshoot.proxy.impl.ProxyToServerConnection.respondWith(ProxyToServerConnection.java:519) [browsermob-dist-2.1.4.jar:?]
+	at org.littleshoot.proxy.impl.ProxyToServerConnection.readHTTPChunk(ProxyToServerConnection.java:251) [browsermob-dist-2.1.4.jar:?]
+	at org.littleshoot.proxy.impl.ProxyConnection.readHTTP(ProxyConnection.java:146) [browsermob-dist-2.1.4.jar:?]
+	at org.littleshoot.proxy.impl.ProxyConnection.read(ProxyConnection.java:120) [browsermob-dist-2.1.4.jar:?]
+	at org.littleshoot.proxy.impl.ProxyToServerConnection.read(ProxyToServerConnection.java:214) [browsermob-dist-2.1.4.jar:?]
+	at org.littleshoot.proxy.impl.ProxyConnection.channelRead0(ProxyConnection.java:587) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.SimpleChannelInboundHandler.channelRead(SimpleChannelInboundHandler.java:105) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:373) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:359) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:351) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:266) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:373) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:359) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:351) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.ChannelInboundHandlerAdapter.channelRead(ChannelInboundHandlerAdapter.java:86) [browsermob-dist-2.1.4.jar:?]
+	at org.littleshoot.proxy.impl.ProxyConnection$ResponseReadMonitor.channelRead(ProxyConnection.java:738) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:373) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:359) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:351) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:293) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:267) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:373) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:359) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:351) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.ChannelInboundHandlerAdapter.channelRead(ChannelInboundHandlerAdapter.java:86) [browsermob-dist-2.1.4.jar:?]
+	at org.littleshoot.proxy.impl.ProxyConnection$BytesReadMonitor.channelRead(ProxyConnection.java:692) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:373) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:359) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:351) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.handler.ssl.SslHandler.unwrap(SslHandler.java:1069) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.handler.ssl.SslHandler.decode(SslHandler.java:902) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:411) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:248) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:373) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:359) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:351) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1334) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:373) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:359) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:926) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:129) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:651) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:574) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:488) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:450) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:873) [browsermob-dist-2.1.4.jar:?]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_301]
+Caused by: java.lang.IllegalStateException
+	at com.google.common.base.Preconditions.checkState(Preconditions.java:429) ~[browsermob-dist-2.1.4.jar:?]
+	at com.google.common.net.MediaType$Tokenizer.consumeTokenIfPresent(MediaType.java:813) ~[browsermob-dist-2.1.4.jar:?]
+	at com.google.common.net.MediaType.parse(MediaType.java:776) ~[browsermob-dist-2.1.4.jar:?]
+	... 52 more
+
+[WARN  2022-07-05T11:14:22,514 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-0) No content type specified in response from /speed?id=RiaWqsnT3403yXTgVY&uin=6f700991b9db8424-6227ddc58b003525-7750&version=v1.32.5&aid=073e7f8b-9ed9-43bc-839a-4e9550fefcf6&platform=3&netType=4&sessionId=session-1656990857164&from=https%3A%2F%2Fxui.ptlogin2.qq.com%2Fcgi-bin%2Fxlogin%3Fappid%3D716027609%26daid%3D383%26style%3D33%26login_text%3D%25E7%2599%25BB%25E5%25BD%2595%26hide_title_bar%3D1%26hide_border%3D1%26target%3Dself%26s_url%3Dhttps%253A%252F%252Fgraph.qq.com%252Foauth2.0%252Flogin_jump%26pt_3rd_aid%3D1101083114%26pt_feedback_link%3Dhttps%253A%252F%252Fsupport.qq.com%252Fproducts%252F77942%253FcustomInfo%253D.appid1101083114%26theme%3D2%26verify_theme%3D&referer=https%3A%2F%2Fgraph.qq.com%2F. Content will be treated as application/octet-stream 
+[WARN  2022-07-05T11:14:22,786 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-0) No content type specified in response from /speed?id=RiaWqsnT3403yXTgVY&uin=6f700991b9db8424-6227ddc58b003525-7750&version=v1.32.5&aid=073e7f8b-9ed9-43bc-839a-4e9550fefcf6&platform=3&netType=4&sessionId=session-1656990857164&from=https%3A%2F%2Fxui.ptlogin2.qq.com%2Fcgi-bin%2Fxlogin%3Fappid%3D716027609%26daid%3D383%26style%3D33%26login_text%3D%25E7%2599%25BB%25E5%25BD%2595%26hide_title_bar%3D1%26hide_border%3D1%26target%3Dself%26s_url%3Dhttps%253A%252F%252Fgraph.qq.com%252Foauth2.0%252Flogin_jump%26pt_3rd_aid%3D1101083114%26pt_feedback_link%3Dhttps%253A%252F%252Fsupport.qq.com%252Fproducts%252F77942%253FcustomInfo%253D.appid1101083114%26theme%3D2%26verify_theme%3D&referer=https%3A%2F%2Fgraph.qq.com%2F. Content will be treated as application/octet-stream 
+[WARN  2022-07-05T11:14:23,050 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-0) No content type specified in response from /speed?id=RiaWqsnT3403yXTgVY&uin=6f700991b9db8424-6227ddc58b003525-7750&version=v1.32.5&aid=073e7f8b-9ed9-43bc-839a-4e9550fefcf6&platform=3&netType=4&sessionId=session-1656990857164&from=https%3A%2F%2Fxui.ptlogin2.qq.com%2Fcgi-bin%2Fxlogin%3Fappid%3D716027609%26daid%3D383%26style%3D33%26login_text%3D%25E7%2599%25BB%25E5%25BD%2595%26hide_title_bar%3D1%26hide_border%3D1%26target%3Dself%26s_url%3Dhttps%253A%252F%252Fgraph.qq.com%252Foauth2.0%252Flogin_jump%26pt_3rd_aid%3D1101083114%26pt_feedback_link%3Dhttps%253A%252F%252Fsupport.qq.com%252Fproducts%252F77942%253FcustomInfo%253D.appid1101083114%26theme%3D2%26verify_theme%3D&referer=https%3A%2F%2Fgraph.qq.com%2F. Content will be treated as application/octet-stream 
+[WARN  2022-07-05T11:14:23,258 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-0) No content type specified in response from /speed?id=RiaWqsnT3403yXTgVY&uin=6f700991b9db8424-6227ddc58b003525-7750&version=v1.32.5&aid=073e7f8b-9ed9-43bc-839a-4e9550fefcf6&platform=3&netType=4&sessionId=session-1656990857164&from=https%3A%2F%2Fxui.ptlogin2.qq.com%2Fcgi-bin%2Fxlogin%3Fappid%3D716027609%26daid%3D383%26style%3D33%26login_text%3D%25E7%2599%25BB%25E5%25BD%2595%26hide_title_bar%3D1%26hide_border%3D1%26target%3Dself%26s_url%3Dhttps%253A%252F%252Fgraph.qq.com%252Foauth2.0%252Flogin_jump%26pt_3rd_aid%3D1101083114%26pt_feedback_link%3Dhttps%253A%252F%252Fsupport.qq.com%252Fproducts%252F77942%253FcustomInfo%253D.appid1101083114%26theme%3D2%26verify_theme%3D&referer=https%3A%2F%2Fgraph.qq.com%2F. Content will be treated as application/octet-stream 
+[WARN  2022-07-05T11:14:23,851 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-0) No content type specified in response from /speed?id=RiaWqsnT3403yXTgVY&uin=6f700991b9db8424-6227ddc58b003525-7750&version=v1.32.5&aid=073e7f8b-9ed9-43bc-839a-4e9550fefcf6&platform=3&netType=4&sessionId=session-1656990857164&from=https%3A%2F%2Fxui.ptlogin2.qq.com%2Fcgi-bin%2Fxlogin%3Fappid%3D716027609%26daid%3D383%26style%3D33%26login_text%3D%25E7%2599%25BB%25E5%25BD%2595%26hide_title_bar%3D1%26hide_border%3D1%26target%3Dself%26s_url%3Dhttps%253A%252F%252Fgraph.qq.com%252Foauth2.0%252Flogin_jump%26pt_3rd_aid%3D1101083114%26pt_feedback_link%3Dhttps%253A%252F%252Fsupport.qq.com%252Fproducts%252F77942%253FcustomInfo%253D.appid1101083114%26theme%3D2%26verify_theme%3D&referer=https%3A%2F%2Fgraph.qq.com%2F. Content will be treated as application/octet-stream 
+[INFO  2022-07-05T11:14:23,955 org.littleshoot.proxy.impl.ProxyToServerConnection] (LittleProxy-0-ProxyToServerWorker-7) (CONNECTING) [id: 0xadaa75e1]: Connection to upstream server failed io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: localhost.sec.qq.com/127.0.0.1:9410
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method) ~[?:1.8.0_301]
+	at sun.nio.ch.SocketChannelImpl.finishConnect(Unknown Source) ~[?:1.8.0_301]
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:346) ~[browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:340) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:639) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:574) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:488) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:450) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:873) [browsermob-dist-2.1.4.jar:?]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_301]
+
+[INFO  2022-07-05T11:14:24,011 org.littleshoot.proxy.impl.ProxyToServerConnection] (LittleProxy-0-ProxyToServerWorker-1) (CONNECTING) [id: 0xc9ad6592]: Connection to upstream server failed io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: localhost.ptlogin2.qq.com/127.0.0.1:4305
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method) ~[?:1.8.0_301]
+	at sun.nio.ch.SocketChannelImpl.finishConnect(Unknown Source) ~[?:1.8.0_301]
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:346) ~[browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:340) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:639) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:574) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:488) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:450) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:873) [browsermob-dist-2.1.4.jar:?]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_301]
+
+[INFO  2022-07-05T11:14:24,043 org.littleshoot.proxy.impl.ProxyToServerConnection] (LittleProxy-0-ProxyToServerWorker-2) (CONNECTING) [id: 0x13c8f49c]: Connection to upstream server failed io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: localhost.sec.qq.com/127.0.0.1:16873
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method) ~[?:1.8.0_301]
+	at sun.nio.ch.SocketChannelImpl.finishConnect(Unknown Source) ~[?:1.8.0_301]
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:346) ~[browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:340) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:639) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:574) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:488) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:450) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:873) [browsermob-dist-2.1.4.jar:?]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_301]
+
+[INFO  2022-07-05T11:14:24,140 org.littleshoot.proxy.impl.ProxyToServerConnection] (LittleProxy-0-ProxyToServerWorker-3) (CONNECTING) [id: 0x4fc728cd]: Connection to upstream server failed io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: localhost.ptlogin2.qq.com/127.0.0.1:4307
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method) ~[?:1.8.0_301]
+	at sun.nio.ch.SocketChannelImpl.finishConnect(Unknown Source) ~[?:1.8.0_301]
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:346) ~[browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:340) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:639) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:574) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:488) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:450) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:873) [browsermob-dist-2.1.4.jar:?]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_301]
+
+[WARN  2022-07-05T11:14:24,227 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-0) No content type specified in response from /speed?id=RiaWqsnT3403yXTgVY&uin=6f700991b9db8424-6227ddc58b003525-7750&version=v1.32.5&aid=073e7f8b-9ed9-43bc-839a-4e9550fefcf6&platform=3&netType=4&sessionId=session-1656990857164&from=https%3A%2F%2Fxui.ptlogin2.qq.com%2Fcgi-bin%2Fxlogin%3Fappid%3D716027609%26daid%3D383%26style%3D33%26login_text%3D%25E7%2599%25BB%25E5%25BD%2595%26hide_title_bar%3D1%26hide_border%3D1%26target%3Dself%26s_url%3Dhttps%253A%252F%252Fgraph.qq.com%252Foauth2.0%252Flogin_jump%26pt_3rd_aid%3D1101083114%26pt_feedback_link%3Dhttps%253A%252F%252Fsupport.qq.com%252Fproducts%252F77942%253FcustomInfo%253D.appid1101083114%26theme%3D2%26verify_theme%3D&referer=https%3A%2F%2Fgraph.qq.com%2F. Content will be treated as application/octet-stream 
+[INFO  2022-07-05T11:14:24,251 org.littleshoot.proxy.impl.ProxyToServerConnection] (LittleProxy-0-ProxyToServerWorker-6) (CONNECTING) [id: 0xc79a8c2e]: Connection to upstream server failed io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: localhost.ptlogin2.qq.com/127.0.0.1:4309
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method) ~[?:1.8.0_301]
+	at sun.nio.ch.SocketChannelImpl.finishConnect(Unknown Source) ~[?:1.8.0_301]
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:346) ~[browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:340) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:639) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:574) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:488) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:450) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:873) [browsermob-dist-2.1.4.jar:?]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_301]
+
+[WARN  2022-07-05T11:14:24,420 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-0) No content type specified in response from /speed?id=RiaWqsnT3403yXTgVY&uin=6f700991b9db8424-6227ddc58b003525-7750&version=v1.32.5&aid=073e7f8b-9ed9-43bc-839a-4e9550fefcf6&platform=3&netType=4&sessionId=session-1656990857164&from=https%3A%2F%2Fxui.ptlogin2.qq.com%2Fcgi-bin%2Fxlogin%3Fappid%3D716027609%26daid%3D383%26style%3D33%26login_text%3D%25E7%2599%25BB%25E5%25BD%2595%26hide_title_bar%3D1%26hide_border%3D1%26target%3Dself%26s_url%3Dhttps%253A%252F%252Fgraph.qq.com%252Foauth2.0%252Flogin_jump%26pt_3rd_aid%3D1101083114%26pt_feedback_link%3Dhttps%253A%252F%252Fsupport.qq.com%252Fproducts%252F77942%253FcustomInfo%253D.appid1101083114%26theme%3D2%26verify_theme%3D&referer=https%3A%2F%2Fgraph.qq.com%2F. Content will be treated as application/octet-stream 
+[WARN  2022-07-05T11:14:24,508 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-0) No content type specified in response from /speed?id=RiaWqsnT3403yXTgVY&uin=6f700991b9db8424-6227ddc58b003525-7750&version=v1.32.5&aid=073e7f8b-9ed9-43bc-839a-4e9550fefcf6&platform=3&netType=4&sessionId=session-1656990857164&from=https%3A%2F%2Fxui.ptlogin2.qq.com%2Fcgi-bin%2Fxlogin%3Fappid%3D716027609%26daid%3D383%26style%3D33%26login_text%3D%25E7%2599%25BB%25E5%25BD%2595%26hide_title_bar%3D1%26hide_border%3D1%26target%3Dself%26s_url%3Dhttps%253A%252F%252Fgraph.qq.com%252Foauth2.0%252Flogin_jump%26pt_3rd_aid%3D1101083114%26pt_feedback_link%3Dhttps%253A%252F%252Fsupport.qq.com%252Fproducts%252F77942%253FcustomInfo%253D.appid1101083114%26theme%3D2%26verify_theme%3D&referer=https%3A%2F%2Fgraph.qq.com%2F. Content will be treated as application/octet-stream 
+[WARN  2022-07-05T11:14:25,544 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-0) No content type specified in response from /speed?id=RiaWqsnT3403yXTgVY&uin=6f700991b9db8424-6227ddc58b003525-7750&version=v1.32.5&aid=073e7f8b-9ed9-43bc-839a-4e9550fefcf6&platform=3&netType=4&sessionId=session-1656990857164&from=https%3A%2F%2Fxui.ptlogin2.qq.com%2Fcgi-bin%2Fxlogin%3Fappid%3D716027609%26daid%3D383%26style%3D33%26login_text%3D%25E7%2599%25BB%25E5%25BD%2595%26hide_title_bar%3D1%26hide_border%3D1%26target%3Dself%26s_url%3Dhttps%253A%252F%252Fgraph.qq.com%252Foauth2.0%252Flogin_jump%26pt_3rd_aid%3D1101083114%26pt_feedback_link%3Dhttps%253A%252F%252Fsupport.qq.com%252Fproducts%252F77942%253FcustomInfo%253D.appid1101083114%26theme%3D2%26verify_theme%3D&referer=https%3A%2F%2Fgraph.qq.com%2F. Content will be treated as application/octet-stream 
+[INFO  2022-07-05T11:14:25,760 org.littleshoot.proxy.impl.ClientToProxyConnection] (LittleProxy-0-ClientToProxyWorker-6) (NEGOTIATING_CONNECT) [id: 0x4dff7db6, L:/0:0:0:0:0:0:0:1:8081 - R:/0:0:0:0:0:0:0:1:65482]: An IOException occurred on ClientToProxyConnection: 你的主机中的软件中止了一个已建立的连接。 
+[INFO  2022-07-05T11:14:25,764 org.littleshoot.proxy.impl.ProxyToServerConnection] (LittleProxy-0-ProxyToServerWorker-6) (HANDSHAKING) [id: 0xc1b566c6, L:0.0.0.0/0.0.0.0:65483 ! R:cdn-go.cn/61.156.216.219:443]: Connection to upstream server failed java.nio.channels.ClosedChannelException: null
+	at io.netty.handler.ssl.SslHandler.channelInactive(...)(Unknown Source) ~[browsermob-dist-2.1.4.jar:?]
+
+[WARN  2022-07-05T11:14:28,445 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-4) No content type specified in response from /weishi/getauthinfo?cmd=getLoginInfo&_t=1656990868373&_csrf=618637787. Content will be treated as application/octet-stream 
+[WARN  2022-07-05T11:14:29,165 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-0) No content type specified in response from /sdk/report/ws-report.js. Content will be treated as application/octet-stream 
+[WARN  2022-07-05T11:14:29,549 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-4) No content type specified in response from /weishi/getauthinfo?cmd=getLoginInfo&_t=1656990869526&_csrf=618637787. Content will be treated as application/octet-stream 
+[INFO  2022-07-05T11:14:29,733 org.littleshoot.proxy.impl.ClientToProxyConnection] (LittleProxy-0-ClientToProxyWorker-7) (NEGOTIATING_CONNECT) [id: 0x6a578182, L:/0:0:0:0:0:0:0:1:8081 - R:/0:0:0:0:0:0:0:1:65502]: An IOException occurred on ClientToProxyConnection: 你的主机中的软件中止了一个已建立的连接。 
+[INFO  2022-07-05T11:14:29,733 org.littleshoot.proxy.impl.ProxyToServerConnection] (LittleProxy-0-ProxyToServerWorker-7) (HANDSHAKING) [id: 0xa43ed4d0, L:0.0.0.0/0.0.0.0:65503 ! R:q.qlogo.cn/220.194.81.39:443]: Connection to upstream server failed java.nio.channels.ClosedChannelException: null
+	at io.netty.handler.ssl.SslHandler.channelInactive(...)(Unknown Source) ~[browsermob-dist-2.1.4.jar:?]
+
+[WARN  2022-07-05T11:14:30,194 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-0) No content type specified in response from /iseecdn/static/js/beacon-all.js. Content will be treated as application/octet-stream 
+[INFO  2022-07-05T11:14:32,228 org.littleshoot.proxy.impl.ProxyToServerConnection] (LittleProxy-0-ProxyToServerWorker-0) (CONNECTING) [id: 0x39edd8a6]: Connection to upstream server failed io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection timed out: no further information: accounts.google.com/142.251.43.13:443
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method) ~[?:1.8.0_301]
+	at sun.nio.ch.SocketChannelImpl.finishConnect(Unknown Source) ~[?:1.8.0_301]
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:346) ~[browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:340) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:639) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:574) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:488) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:450) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:873) [browsermob-dist-2.1.4.jar:?]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_301]
+
