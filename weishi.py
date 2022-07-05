@@ -1,5 +1,4 @@
-from platform import platform
-from unittest import result
+
 from selenium.webdriver.common.by import By
 from time import sleep
 import cookie
@@ -46,6 +45,7 @@ class Tengxunweishi:
         while(True):
             try:    
                 bt = self.driver.find_element(By.XPATH,"//div[contains(text(),'设置封面')]")
+                print("设置封面")
                 break
             except:
                 try:

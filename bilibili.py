@@ -1,38 +1,175 @@
 import requests
+from selenium.webdriver.common.by import By
+from time import sleep
+import cookie
+import json
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.common.keys import Keys
 class Bilibili:
     def __init__(self):
-        self.cookies = cookies = {
-            'buvid3': 'A425DCF5-0C68-136F-9BE8-902987495ECE02513infoc',
-            '_uuid': 'D1DA1E69-1379-1A45-2D64-3BD521014EC3103819infoc',
-            'buvid_fp_plain': 'undefined',
-            'CURRENT_BLACKGAP': '0',
-            'nostalgia_conf': '-1',
-            'rpdid': '|(JJmYR|Ykul0J\'uYR~~RYmJ)',
-            'LIVE_BUVID': 'AUTO6716479582963705',
-            'is-2022-channel': '1',
-            'hit-dyn-v2': '1',
-            'blackside_state': '0',
-            'fingerprint3': 'e897c10d096bbffe77fa900d57024647',
-            'bp_article_offset_663127116': '673764456356905000',
-            'CURRENT_FNVAL': '4048',
-            'PVID': '2',
-            'buvid4': '3FB6BFB9-D6CC-0DD1-C521-43676A4967A203755-022032011-0wUJZf2fFJuBoCUgao%2Bxbg%3D%3D',
-            'CURRENT_QUALITY': '80',
-            'innersign': '0',
-            'b_lsid': '94D103E6D_181BA13BBFA',
-            'i-wanna-go-back': '-1',
-            'b_ut': '7',
-            'bp_video_offset_102750155': '677925364699234300',
-            'b_timer': '%7B%22ffp%22%3A%7B%22333.851.fp.risk_A425DCF5%22%3A%22181BA13C0F2%22%2C%22333.1007.fp.risk_A425DCF5%22%3A%22181BA13E3C7%22%2C%22333.885.fp.risk_A425DCF5%22%3A%22181BA13ED5D%22%2C%22333.42.fp.risk_A425DCF5%22%3A%22181BA13F8B1%22%2C%22333.130.fp.risk_A425DCF5%22%3A%22181BA1796FE%22%7D%7D',
-            'fingerprint': '4d49dd1eae7c0651813cc85e7eb61758',
-            'SESSDATA': '60cdcef1%2C1672236535%2C9a35b%2A71',
-            'bili_jct': '4bab4a2f3468e57ba1e2d0f898d4e2ed',
-            'DedeUserID': '663127116',
-            'DedeUserID__ckMd5': '06a0c0c3b51a424b',
-            'sid': 'bs5w8cpv',
-            'bp_video_offset_663127116': '677864483533619300',
-            'buvid_fp': '4d49dd1eae7c0651813cc85e7eb61758',
-        }
+        self.is_start = False
+        self.progress = '0%'
+        self.platform = "bilibili"
+        cookie.proxy.new_har(options={
+            'captureContent': True,
+            'captureHeaders': True
+        })
+        self.login()
+    def login(self):
+        state = cookie.check_state(self.platform)
+        if(state!=0):
+            driver = state
+        else:   
+            driver = cookie.login(self.platform)
+        self.driver = driver
+        self.driver.get("https://member.bilibili.com/york/videoup?new")
+        sleep(1)
+        self.driver.refresh()
+        print("登陆成功")
+    def upload_file(self,filepath):
+        while(True):
+            try:    
+                input_bt = self.driver.find_element(By.XPATH,"//div[@class='bcc-upload-wrapper']/input")
+                break
+            except:
+                sleep(1)
+                print("无")
+        input_bt.send_keys(filepath)
+        self.is_start = True
+        print("文件上传")
+
+    def replace_cover(self,filepath):
+        while(True):
+            try:    
+                bt = self.driver.find_element(By.XPATH,"//*[contains(text(),'更改封面')]")
+                print("设置封面")
+                break
+            except:
+                try:
+                    text = self.driver.find_element(By.XPATH,"//span[contains(text(),'%')]")
+                    print(text.text)
+                    self.progress = text.text
+                    sleep(0.5)
+                except:
+                    sleep(0.5)
+        ActionChains(self.driver).move_to_element(bt).click(bt).perform()
+        sleep(1)
+        # bt.click()
+        while(True):
+            try:    
+                bt = self.driver.find_element(By.XPATH,"//div[contains(text(),'上传封面')]")
+                break
+            except:
+                print("还没有2")
+                sleep(1)
+        while(True):
+            try:    
+                bt.click()
+                break
+            except:
+                sleep(1)
+
+        while(True):
+            try:    
+                bt = self.driver.find_element(By.XPATH,"//div[@class='cover-cut-content-upload-box']/../input")
+                break
+            except:
+                print("还没有A")
+                sleep(1)
+        bt.send_keys(filepath)
+        while(True):
+            try:    
+                bt = self.driver.find_element(By.XPATH,"//div[@class='cover-cut-footer-pick']/button[2]")
+                break
+            except:
+                print("还没有B")    
+                sleep(1)
+        while(True):
+            try:    
+                bt.click()
+                break
+            except:
+                sleep(1)
+    
+    def add_title(self,title):
+        while(True):
+            try:    
+                input_bt = self.driver.find_element(By.XPATH,"//div[@class='form']/div[3]/div/div[2]/div/input")
+                break
+            except:
+                sleep(1)
+                print("无")
+        # ActionChains(self.driver).move_to_element(bt).click(bt).perform()
+        input_bt.send_keys(Keys.CONTROL+'a')
+        input_bt.send_keys(title)
+    def add_type(self,father_type,child_type):
+        while(True):
+            try:    
+                input_bt = self.driver.find_element(By.XPATH,"//div[@class='form']/div[5]/div/div[2]")
+                break
+            except:
+                sleep(1)
+                print("无") 
+        while(True):
+            try:    
+                ActionChains(self.driver).move_to_element(input_bt).perform()
+                input_bt.click()
+                break
+            except:
+                sleep(1)
+                print("无") 
+        while(True):
+            try:    
+                input_bt = self.driver.find_element(By.XPATH,"//div[@class='drop-f-wrp']//p[text()='{0}']".format(father_type))
+                input_bt.click()
+                break
+            except:
+                sleep(1)
+                print("无") 
+        while(True):
+            try:    
+                input_bt = self.driver.find_element(By.XPATH,"//div[@class='drop-t-wrp']//p[text()='{0}']".format(child_type))
+                input_bt.click()
+                break
+            except:
+                sleep(1)
+                print("无") 
+
+    def add_tag(self,tags):
+       
+        while(True):
+            try:    
+                input_bt = self.driver.find_element(By.XPATH,"//div[@class='form']/div[6]//input")
+                break
+            except:
+                sleep(1)
+                print("无")
+        
+        
+        for item in tags:
+            ActionChains(self.driver).move_to_element(input_bt).perform()
+            input_bt.send_keys(item)
+            input_bt.send_keys(Keys.ENTER)
+    def add_describe(self,content):
+        while(True):
+            try:    
+                input_bt = self.driver.find_element(By.XPATH,"//div[@class='form']/div[7]//div[@class='ql-editor ql-blank']")
+                break
+            except:
+                sleep(1)
+                print("无")
+        ActionChains(self.driver).move_to_element(input_bt).perform()
+        input_bt.send_keys(content)
+    def publish(self):
+        while(True):
+            try:    
+                input_bt = self.driver.find_element(By.XPATH,"//span[@class='submit-add']")
+                break
+            except:
+                sleep(1)
+                print("无")
+        ActionChains(self.driver).move_to_element(input_bt).perform()
+        input_bt.click()
     def process_data(self,raw_data_list):
         '''
             用来处理get——data传过来的json列表，拿到每个视频的标题、封面、bvid、播放量、点赞量、收藏量
@@ -85,6 +222,19 @@ class Bilibili:
             # 数据处理
             new_audio_data_list = self.process_data(audio_data_list)
         return new_audio_data_list
+    @staticmethod
+    def get_typelist():
+        cookies = cookie.get_cookie("bilibili")
+        json = requests.get("https://member.bilibili.com/x/vupre/web/archive/pre",cookies=cookies).json()["data"]["typelist"]
+        return json
 bi = Bilibili()
-a = bi.get_data()
-print(a)
+
+bi.upload_file(r"C:\Users\1\Pictures\序列 01.mp4")
+bi.replace_cover(r"C:\Users\1\Pictures\3.png")
+bi.add_title("为奇偶")
+bi.add_type('生活','出行')
+bi.add_tag(["sadas","dsd","wqeqw得到"])
+bi.add_describe("我爱你")
+bi.publish()
+# json = Bilibili.get_typelist()
+input(a)

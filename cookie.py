@@ -13,8 +13,12 @@ chrome_options = Options()
 # chrome_options.add_argument('--disable-gpu')
 chrome_options.add_argument('--ignore-certificate-errors')
 chrome_options.add_argument('--proxy-server={0}'.format(proxy.proxy))
-PLATFORM = {"tengxunweishi":'https://media.weishi.qq.com/'}
-KEY = {"tengxunweishi":'进入官网'}
+PLATFORM = {"tengxunweishi":'https://media.weishi.qq.com/',
+            "bilibili":'https://member.bilibili.com/platform/upload/video/frame'
+        }
+KEY = {"tengxunweishi":'进入官网',
+        "bilibili":'密码登录'
+    }
 def login(platform):
     s = Service("chromedriver.exe")
     driver = webdriver.Chrome(service=s)
@@ -66,3 +70,11 @@ def get_driver(platform):
         driver.add_cookie(cookie)
     driver.refresh()
     return driver
+
+def get_cookie(platform):
+    with open(platform+'_cookies.txt', 'r', encoding='utf8') as f:
+        listCookies = json.loads(f.read())
+        dictionary= {}
+        for item in listCookies:
+            dictionary[item["name"]] = item["value"]
+    return dictionary
