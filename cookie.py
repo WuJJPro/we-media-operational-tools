@@ -1,6 +1,9 @@
 # 该包是用来获取cookie的
 from selenium.webdriver.chrome.service import Service
 from selenium import webdriver
+
+# from seleniumwire import webdriver
+
 from time import sleep
 import json
 from selenium.webdriver.chrome.options import Options 
@@ -14,10 +17,16 @@ chrome_options = Options()
 chrome_options.add_argument('--ignore-certificate-errors')
 chrome_options.add_argument('--proxy-server={0}'.format(proxy.proxy))
 PLATFORM = {"tengxunweishi":'https://media.weishi.qq.com/',
-            "bilibili":'https://member.bilibili.com/platform/upload/video/frame'
+            "bilibili":'https://member.bilibili.com/platform/upload/video/frame',
+            "douyin":'https://creator.douyin.com/creator-micro/content/upload',
+            "zhihu":'https://www.zhihu.com/zvideo/upload-video',
+            "xiaohongshu":'https://creator.xiaohongshu.com/publish/publish',
         }
 KEY = {"tengxunweishi":'进入官网',
-        "bilibili":'密码登录'
+        "bilibili":'密码登录',
+        "douyin":'内容发布及管理',
+        "zhihu":"社交帐号登录",
+        "xiaohongshu":'加入我们'
     }
 def login(platform):
     s = Service("chromedriver.exe")
@@ -49,7 +58,8 @@ def check_state(platform):
             listCookies = json.loads(f.read())
         for cookie in listCookies:
             driver.add_cookie(cookie)
-        driver.refresh()
+        driver.get(PLATFORM.get(platform))
+        a = 32
     except:
         pass
     html = driver.page_source

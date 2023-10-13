@@ -1,0 +1,150 @@
+from pdb import post_mortem
+import requests
+from selenium.webdriver.common.by import By
+from time import sleep
+import cookie
+import json
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.common.keys import Keys
+class Douyin:
+    def __init__(self):
+        self.is_start = False
+        self.progress = '0%'
+        self.platform = "douyin"
+        cookie.proxy.new_har(options={
+            'captureContent': True,
+            'captureHeaders': True
+        })
+        self.login()
+    def login(self):
+        state = cookie.check_state(self.platform)
+        if(state!=0):
+            driver = state
+        else:   
+            driver = cookie.login(self.platform)
+        self.driver = driver
+        sleep(1)
+        self.driver.get("https://creator.douyin.com/creator-micro/content/upload")
+        self.driver.refresh()
+        print("登陆成功")
+    def upload_file(self,filepath):
+        while(True):
+            try:    
+                input_bt = self.driver.find_element(By.XPATH,"//input[@class='upload-btn-input--1NeEX']")
+                break
+            except:
+                sleep(1)
+                print("无")
+        input_bt.send_keys(filepath)
+        self.is_start = True
+        print("文件上传")
+
+    def replace_cover(self,filepath):
+        while(True):
+            try:
+                bt = self.driver.find_element(By.XPATH,"//*[text()='支持完整视频封面截取']/..//span[contains(text(),'编辑封面')]")
+                bt.click()
+            except:
+                try:
+                    bt = self.driver.find_element(By.XPATH,"//*[text()='上传封面']")
+                    break
+                except:
+                    pass   
+                sleep(1)
+        
+        while(True):
+            try:    
+                bt = self.driver.find_element(By.XPATH,"//*[text()='上传封面']")
+                bt.click()
+                break
+            except:
+                print("还没有A")
+                sleep(1)
+
+        while(True):
+            try:    
+                bt = self.driver.find_element(By.XPATH,"//input[@name='upload-btn']")
+                break
+            except:
+                print("还没有A")
+                sleep(1)
+        bt.send_keys(filepath)
+
+        while(True):
+            try:    
+                bt = self.driver.find_element(By.XPATH,"//div[@class='dialog-operation--35HYf']//button[2]")
+                break
+            except:
+                print("还没有B")    
+                sleep(1)
+        while(True):
+            try:    
+                bt.click()
+                break
+            except:
+                sleep(1)
+
+
+        while(True):
+            try:    
+                bt = self.driver.find_element(By.XPATH,"//div[@class='operation--2_JP2']//button[1]")
+                break
+            except:
+                print("还没有B")    
+                sleep(1)
+
+        while(True):
+            try:    
+                bt.click()
+                try:
+                    sleep(1)
+                    b = self.driver.find_element(By.XPATH,"//div[@class='form--3R0Ka']//div[@class='notranslate public-DraftEditor-content']")
+                    break
+                except:
+                    pass
+            except:
+                pass
+    
+    def add_title(self,title):
+        while(True):
+            try:    
+                input_bt = self.driver.find_element(By.XPATH,"//div[@class='form--3R0Ka']//div[@class='notranslate public-DraftEditor-content']")
+                break
+            except:
+                sleep(1)
+                print("无")
+        # ActionChains(self.driver).move_to_element(bt).click(bt).perform()
+        input_bt.send_keys(Keys.CONTROL+'a')
+        input_bt.send_keys(title)
+    def add_tag(self,tags):
+        while(True):
+            try:    
+                input_bt = self.driver.find_element(By.XPATH,"//div[@class='form--3R0Ka']//div[@class='notranslate public-DraftEditor-content']")
+                break
+            except:
+                sleep(1)
+                print("无")
+        for item in tags:
+            ActionChains(self.driver).move_to_element(input_bt).perform()
+            input_bt.send_keys(item)
+            input_bt.send_keys(Keys.ENTER)
+    def publish(self):
+        while(True):
+            try:    
+                input_bt = self.driver.find_element(By.XPATH,"//button[text()='发布']")
+                break
+            except:
+                sleep(1)
+                print("无")
+        ActionChains(self.driver).move_to_element(input_bt).perform()
+        input_bt.click()
+    def success(self):
+        list = self.get_data()
+        video = sorted(list,key = lambda x:x['ptime'],reverse=True)[0]
+        return video["bvid"]
+dy = Douyin()
+dy.upload_file(r"C:\Users\1\Pictures\序列 01.mp4")
+dy.replace_cover(r"C:\Users\1\Pictures\3.png")
+dy.add_title("为nmddddss奇go")
+dy.add_tag(["sadas","dsd","wqeqw得到"])
+dy.publish()

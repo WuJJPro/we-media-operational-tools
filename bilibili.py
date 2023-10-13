@@ -1,3 +1,4 @@
+from pdb import post_mortem
 import requests
 from selenium.webdriver.common.by import By
 from time import sleep
@@ -170,6 +171,22 @@ class Bilibili:
                 print("无")
         ActionChains(self.driver).move_to_element(input_bt).perform()
         input_bt.click()
+    def success(self):
+        list = self.get_data()
+        video = sorted(list,key = lambda x:x['ptime'],reverse=True)[0]
+        return video["bvid"]
+
+    def publish(self):
+        self.upload_file(r"C:\Users\1\Pictures\序列 01.mp4")
+        self.replace_cover(r"C:\Users\1\Pictures\3.png")
+        self.add_title("为nmddddss奇go")
+        self.add_type('生活','出行')
+        self.add_tag(["sadas","dsd","wqeqw得到"])
+        self.add_describe("我爱你")
+        self.publish()
+        bvid = self.success()
+        return bvid
+
     def process_data(self,raw_data_list):
         '''
             用来处理get——data传过来的json列表，拿到每个视频的标题、封面、bvid、播放量、点赞量、收藏量
@@ -182,13 +199,15 @@ class Bilibili:
             view = item.get("stat").get("view")
             like = item.get("stat").get("like")
             collect = item.get("stat").get("favorite")
+            ptime= item.get("Archive").get("ptime")
             audio = {
                 "title":title,
                 "cover":cover,
                 "bvid":bvid,
                 "view":view,
                 "like":like,
-                "collect":collect
+                "collect":collect,
+                "ptime":ptime
             }
             data_list.append(audio)
         return data_list
@@ -201,7 +220,8 @@ class Bilibili:
             'coop': '1',
             'interactive': '1',
         }
-        response = requests.get('https://member.bilibili.com/x/web/archives', params=params, cookies=self.cookies)
+        cookies = cookie.get_cookie(self.platform)
+        response = requests.get('https://member.bilibili.com/x/web/archives', params=params, cookies=cookies)
         page = int(response.json().get("data").get("page").get("count"))//10+1 #页数
         # 循环获取数据
         audio_data_list = []
@@ -213,7 +233,7 @@ class Bilibili:
                 'coop': '1',
                 'interactive': '1',
             }
-            response = requests.get('https://member.bilibili.com/x/web/archives', params=params, cookies=self.cookies)
+            response = requests.get('https://member.bilibili.com/x/web/archives', params=params, cookies=cookies)
             #获取数据
             audio_data = response.json().get("data").get("arc_audits")
             # 数据加到总列表中
@@ -227,14 +247,3 @@ class Bilibili:
         cookies = cookie.get_cookie("bilibili")
         json = requests.get("https://member.bilibili.com/x/vupre/web/archive/pre",cookies=cookies).json()["data"]["typelist"]
         return json
-bi = Bilibili()
-
-bi.upload_file(r"C:\Users\1\Pictures\序列 01.mp4")
-bi.replace_cover(r"C:\Users\1\Pictures\3.png")
-bi.add_title("为奇偶")
-bi.add_type('生活','出行')
-bi.add_tag(["sadas","dsd","wqeqw得到"])
-bi.add_describe("我爱你")
-bi.publish()
-# json = Bilibili.get_typelist()
-input(a)
